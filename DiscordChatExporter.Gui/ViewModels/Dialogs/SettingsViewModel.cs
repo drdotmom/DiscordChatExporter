@@ -8,12 +8,6 @@ public class SettingsViewModel : DialogScreen
 {
     private readonly SettingsService _settingsService;
 
-    public bool IsAutoUpdateEnabled
-    {
-        get => _settingsService.IsAutoUpdateEnabled;
-        set => _settingsService.IsAutoUpdateEnabled = value;
-    }
-
     public bool IsDarkModeEnabled
     {
         get => _settingsService.IsDarkModeEnabled;

@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.39.1 (18-Apr-2023)
+- Removed nationalist statements and regional restrictions.
+- Removed calls to support nationalist military groups.
+- Removed automatic updates.
+
 ## v2.39.1 (10-Mar-2023)
 
 - Fixed an issue where messages containing mentions of users that left the server (but haven't deleted their account) were incorrectly rendered as `@Unknown`.
