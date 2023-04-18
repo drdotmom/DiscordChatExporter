@@ -47,8 +47,8 @@
                 FontWeight="Light"
                 TextTrimming="CharacterEllipsis"
                 Visibility="{Binding IsSingleChannel, Converter={x:Static s:BoolToVisibilityConverter.InverseInstance}}">
+                <Run Text="Выбрано каналов: " />
                 <Run Text="{Binding Channels.Count, Mode=OneWay}" />
-                <Run Text="channels selected" />
             </TextBlock>
 
             <!--  Category and channel name (for single channel)  -->
@@ -80,18 +80,18 @@
                     <Grid Margin="16,8">
                         <TextBox
                             Padding="16,16,42,16"
-                            materialDesign:HintAssist.Hint="Output path"
+                            materialDesign:HintAssist.Hint="Путь экспорта"
                             materialDesign:HintAssist.IsFloating="True"
                             Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                            Text="{Binding OutputPath}">
+                            Text="{Binding OutputPath}" TextChanged="TextBox_TextChanged">
                             <TextBox.ToolTip>
                                 <TextBlock>
-                                    <Run Text="Output file or directory path." />
-                                    <Run Text="If a directory is specified, file names will be generated automatically based on the channel names and other parameters." />
-                                    <Run Text="Directory path should end with a slash to avoid ambiguity." />
+                                    <Run Text="Путь экспорта файла(ов)." />
+                                    <Run Text="Если указан каталог, имена файлов будут сгенерированы из названий каналов." />
+                                    <Run Text="Путь каталога должен заканчиваться косой чертой [/]. Также, вы можете использовать ключи для генерации названий файлов. Пример: %T-%C.html" />
                                     <LineBreak />
                                     <LineBreak />
-                                    <Run Text="Available template tokens:" />
+                                    <Run Text="Доступные ключи:" />
                                     <LineBreak />
                                     <Run FontWeight="SemiBold" Text="%g" />
                                     <Run Text="— guild ID" />
@@ -143,13 +143,13 @@
                     <!--  Format  -->
                     <ComboBox
                         Margin="16,8"
-                        materialDesign:HintAssist.Hint="Format"
+                        materialDesign:HintAssist.Hint="Формат"
                         materialDesign:HintAssist.IsFloating="True"
                         IsReadOnly="True"
                         ItemsSource="{Binding AvailableFormats}"
                         SelectedItem="{Binding SelectedFormat}"
                         Style="{DynamicResource MaterialDesignOutlinedComboBox}"
-                        ToolTip="Export format">
+                        ToolTip="Формат, в котором будет экспортирован канал(ы)">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Converter={x:Static converters:ExportFormatToStringConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}" />
@@ -174,66 +174,66 @@
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Margin="16,8,16,4"
-                                materialDesign:HintAssist.Hint="After (date)"
+                                materialDesign:HintAssist.Hint="С (дата)"
                                 materialDesign:HintAssist.IsFloating="True"
                                 DisplayDateEnd="{Binding BeforeDate, Converter={x:Static converters:DateTimeOffsetToDateTimeConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"
                                 SelectedDate="{Binding AfterDate, Converter={x:Static converters:DateTimeOffsetToDateTimeConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"
                                 Style="{DynamicResource MaterialDesignOutlinedDatePicker}"
-                                ToolTip="Only include messages sent after this date" />
+                                ToolTip="Экспортировать только сообщения, отправленные после указанной даты." />
                             <DatePicker
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 Margin="16,8,16,4"
-                                materialDesign:HintAssist.Hint="Before (date)"
+                                materialDesign:HintAssist.Hint="По (дата)"
                                 materialDesign:HintAssist.IsFloating="True"
                                 DisplayDateStart="{Binding AfterDate, Converter={x:Static converters:DateTimeOffsetToDateTimeConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"
                                 SelectedDate="{Binding BeforeDate, Converter={x:Static converters:DateTimeOffsetToDateTimeConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"
                                 Style="{DynamicResource MaterialDesignOutlinedDatePicker}"
-                                ToolTip="Only include messages sent before this date" />
+                                ToolTip="Экспортировать только сообщения, отправленные до указанной даты." />
                             <materialDesign:TimePicker
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 Margin="16,4,16,8"
-                                materialDesign:HintAssist.Hint="After (time)"
+                                materialDesign:HintAssist.Hint="С (время)"
                                 materialDesign:HintAssist.IsFloating="True"
                                 Is24Hours="{x:Static utils:Internationalization.Is24Hours}"
                                 IsEnabled="{Binding IsAfterDateSet}"
                                 SelectedTime="{Binding AfterTime, Converter={x:Static converters:TimeSpanToDateTimeConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"
                                 Style="{DynamicResource MaterialDesignOutlinedTimePicker}"
-                                ToolTip="Only include messages sent after this time" />
+                                ToolTip="Экспортировать только сообщения, отправленные после указанного времени." />
                             <materialDesign:TimePicker
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 Margin="16,4,16,8"
-                                materialDesign:HintAssist.Hint="Before (time)"
+                                materialDesign:HintAssist.Hint="По (время)"
                                 materialDesign:HintAssist.IsFloating="True"
                                 Is24Hours="{x:Static utils:Internationalization.Is24Hours}"
                                 IsEnabled="{Binding IsBeforeDateSet}"
                                 SelectedTime="{Binding BeforeTime, Converter={x:Static converters:TimeSpanToDateTimeConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"
                                 Style="{DynamicResource MaterialDesignOutlinedTimePicker}"
-                                ToolTip="Only include messages sent before this time" />
+                                ToolTip="Экспортировать только сообщения, отправленные до указанного времени." />
                         </Grid>
 
                         <!--  Partitioning  -->
                         <TextBox
                             Margin="16,8"
-                            materialDesign:HintAssist.Hint="Partition limit"
+                            materialDesign:HintAssist.Hint="Разбивка файлов"
                             materialDesign:HintAssist.IsFloating="True"
                             Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                             Text="{Binding PartitionLimitValue}"
-                            ToolTip="Split output into partitions, each limited to this number of messages (e.g. '100') or file size (e.g. '10mb')" />
+                            ToolTip="Разбивает файлы на части, ограниченные указанным числом сообщений (например, 100) или размером файла (например, 10mb)." />
 
                         <!--  Filtering  -->
                         <TextBox
                             Margin="16,8"
-                            materialDesign:HintAssist.Hint="Message filter"
+                            materialDesign:HintAssist.Hint="Фильтры"
                             materialDesign:HintAssist.IsFloating="True"
                             Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                             Text="{Binding MessageFilterValue}"
                             ToolTip="Only include messages that satisfy this filter (e.g. 'from:foo#1234' or 'has:image')" />
 
                         <!--  Markdown formatting  -->
-                        <Grid Margin="16,8" ToolTip="Process markdown, mentions, and other special tokens">
+                        <Grid Margin="16,8" ToolTip="Сохраняет форматирование текста и особое форматирование упоминаний, спец.символов и т.п.">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -242,7 +242,7 @@
                             <TextBlock
                                 Grid.Column="0"
                                 VerticalAlignment="Center"
-                                Text="Format markdown" />
+                                Text="Сохранять форматирование" />
                             <ToggleButton
                                 Grid.Column="1"
                                 HorizontalAlignment="Right"
@@ -251,7 +251,7 @@
                         </Grid>
 
                         <!--  Download assets  -->
-                        <Grid Margin="16,8" ToolTip="Download assets referenced by the export (user avatars, attached files, embedded images, etc.)">
+                        <Grid Margin="16,8" ToolTip="Загружает ресурсы при экспорте (аватары, прикреплённые файлы, изображения и т.п.)">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -260,7 +260,7 @@
                             <TextBlock
                                 Grid.Column="0"
                                 VerticalAlignment="Center"
-                                Text="Download assets" />
+                                Text="Скачивать ресуры" />
                             <ToggleButton
                                 Grid.Column="1"
                                 HorizontalAlignment="Right"
@@ -269,7 +269,7 @@
                         </Grid>
 
                         <!--  Reuse assets  -->
-                        <Grid Margin="16,8" ToolTip="Reuse previously downloaded assets to avoid redundant requests">
+                        <Grid Margin="16,8" ToolTip="Повторное использование загруженных ресурсов, чтобы избежать лишних запросов">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -278,7 +278,7 @@
                             <TextBlock
                                 Grid.Column="0"
                                 VerticalAlignment="Center"
-                                Text="Reuse assets" />
+                                Text="Переиспользование ресурсов" />
                             <ToggleButton
                                 Grid.Column="1"
                                 HorizontalAlignment="Right"
@@ -290,11 +290,11 @@
                         <Grid Margin="16,8">
                             <TextBox
                                 Padding="16,16,42,16"
-                                materialDesign:HintAssist.Hint="Assets directory path"
+                                materialDesign:HintAssist.Hint="Расположение ресурсов"
                                 materialDesign:HintAssist.IsFloating="True"
                                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                                 Text="{Binding AssetsDirPath}"
-                                ToolTip="Download assets to this directory. If not specified, the asset directory path will be derived from the output path." />
+                                ToolTip="Загружает ресурсы в указанную папку. Если не определено - путь устанавливается по пути сохранения файла." />
                             <Button
                                 Width="24"
                                 Height="24"
@@ -329,10 +329,10 @@
                     <Style BasedOn="{StaticResource MaterialDesignOutlinedButton}" TargetType="{x:Type Button}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsAdvancedSectionDisplayed}" Value="False">
-                                <Setter Property="Content" Value="MORE" />
+                                <Setter Property="Content" Value="Подробнее..." />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding IsAdvancedSectionDisplayed}" Value="True">
-                                <Setter Property="Content" Value="LESS" />
+                                <Setter Property="Content" Value="Меньше" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
@@ -342,14 +342,14 @@
             <Button
                 Grid.Column="2"
                 Command="{s:Action Confirm}"
-                Content="EXPORT"
+                Content="Экспорт"
                 IsDefault="True"
                 Style="{DynamicResource MaterialDesignOutlinedButton}" />
             <Button
                 Grid.Column="3"
                 Margin="8,0,0,0"
                 Command="{s:Action Close}"
-                Content="CANCEL"
+                Content="Отмена"
                 IsCancel="True"
                 Style="{DynamicResource MaterialDesignOutlinedButton}" />
         </Grid>

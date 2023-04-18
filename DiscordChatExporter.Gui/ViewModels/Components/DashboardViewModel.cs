@@ -217,14 +217,14 @@ public class DashboardViewModel : PropertyChangedBase
             if (successfulExportCount > 0)
             {
                 _eventAggregator.Publish(
-                    new NotificationMessage($"Successfully exported {successfulExportCount} channel(s)")
+                    new NotificationMessage($"Успешно экспортированных каналов: {successfulExportCount}")
                 );
             }
         }
         catch (Exception ex)
         {
             var dialog = _viewModelFactory.CreateMessageBoxViewModel(
-                "Error exporting channel(s)",
+                "Не удалось экспортировать канал(ы)",
                 ex.ToString()
             );
 
