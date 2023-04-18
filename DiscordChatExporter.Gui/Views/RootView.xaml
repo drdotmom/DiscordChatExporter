@@ -9,7 +9,7 @@
     xmlns:s="https://github.com/canton7/Stylet"
     xmlns:viewModels="clr-namespace:DiscordChatExporter.Gui.ViewModels"
     Width="625"
-    Height="575"
+    Height="640"
     MinWidth="325"
     d:DataContext="{d:DesignInstance Type=viewModels:RootViewModel}"
     Background="{DynamicResource MaterialDesignPaper}"

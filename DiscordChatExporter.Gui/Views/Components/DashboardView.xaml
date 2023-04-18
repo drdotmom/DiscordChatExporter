@@ -80,7 +80,7 @@
                         Grid.Column="1"
                         Margin="0,6,6,8"
                         VerticalAlignment="Bottom"
-                        materialDesign:HintAssist.Hint="Token"
+                        materialDesign:HintAssist.Hint="Токен"
                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                         materialDesign:TextFieldAssist.TextBoxViewMargin="0,0,2,0"
                         BorderThickness="0"
@@ -95,7 +95,7 @@
                         Command="{s:Action PopulateGuildsAndChannels}"
                         IsDefault="True"
                         Style="{DynamicResource MaterialDesignFlatButton}"
-                        ToolTip="Pull available guilds and channels (Enter)">
+                        ToolTip="Поиск доступных каналов (Enter)">
                         <materialDesign:PackIcon
                             Width="24"
                             Height="24"
@@ -112,7 +112,7 @@
                 Command="{s:Action ShowSettings}"
                 Foreground="{DynamicResource MaterialDesignDarkForeground}"
                 Style="{DynamicResource MaterialDesignFlatButton}"
-                ToolTip="Settings">
+                ToolTip="Настройки">
                 <Button.Resources>
                     <SolidColorBrush x:Key="MaterialDesignFlatButtonClick" Color="#4C4C4C" />
                 </Button.Resources>
@@ -153,48 +153,50 @@
                         <Run
                             FontSize="16"
                             FontWeight="SemiBold"
-                            Text="To get token for your personal account:" />
+                            Text="Получение токена Discord:" />
                         <LineBreak />
-                        <Run Text="*  Automating user accounts is technically against TOS —" />
-                        <Run FontWeight="SemiBold" Text="use at your own risk" /><Run Text="!" />
+                        <Run Text="*  Внимание! Автоматизация аккаунта противоречит правилам Discord!" />
                         <LineBreak />
-                        <Run Text="1. Open Discord in your" />
+                        <Run Text="*  " />
+                        <Run FontWeight="SemiBold" Text="Используйте на свой страх и риск! " />
+                        <LineBreak />
+                        <Run Text=" 1. Откройте " />
                         <Hyperlink Command="{s:Action OpenDiscord}">
-                            <Run Text="web browser" />
+                            <Run Text="Discord в браузере" />
                         </Hyperlink>
-                        <Run Text="and login" />
+                        <Run Text="и авторизируйтесь." />
                         <LineBreak />
-                        <Run Text="2. Open any server or direct message channel" />
+                        <Run Text=" 2. Выбирите любой сервер или канал" />
                         <LineBreak />
-                        <Run Text="3. Press" />
+                        <Run Text=" 3. Нажмите" />
                         <Run FontWeight="SemiBold" Text="Ctrl+Shift+I" />
-                        <Run Text="to show developer tools" />
+                        <Run Text="чтобы показать инструменты разработчика" />
                         <LineBreak />
-                        <Run Text="4. Navigate to the" />
-                        <Run FontWeight="SemiBold" Text="Network" />
-                        <Run Text="tab" />
+                        <Run Text=" 4. Откройте вкладку" />
+                        <Run FontWeight="SemiBold" Text="Network (Сеть)" />
+                        <Run Text="." />
                         <LineBreak />
-                        <Run Text="5. Press" />
+                        <Run Text=" 5. Нажмите" />
                         <Run FontWeight="SemiBold" Text="Ctrl+R" />
-                        <Run Text="to reload" />
+                        <Run Text="для обновления страницы." />
                         <LineBreak />
-                        <Run Text="6. Switch between random channels to trigger network requests" />
+                        <Run Text=" 6. Переключитесь на любой другой канал, чтобы спровоцировать запросы" />
                         <LineBreak />
-                        <Run Text="7. Search for a request containing" />
+                        <Run Text=" 7. Ищите запрос, содержащий " />
                         <Run FontWeight="SemiBold" Text="messages?limit=50" />
-                        <Run Text="or similar" />
+                        <Run Text="или похожий." />
                         <LineBreak />
-                        <Run Text="8. Select the" />
-                        <Run FontWeight="SemiBold" Text="Headers" />
-                        <Run Text="tab on the right" />
+                        <Run Text=" 8. Выбирите вкладку" />
+                        <Run FontWeight="SemiBold" Text="Headers (Заголовки)" />
+                        <Run Text="в правой панели." />
                         <LineBreak />
-                        <Run Text="9. Scroll down to the" />
-                        <Run FontWeight="SemiBold" Text="Request Headers" />
-                        <Run Text="section" />
+                        <Run Text=" 9. Пролистайте до секции" />
+                        <Run FontWeight="SemiBold" Text="Request Headers (Заголовки запроса)" />
+                        <Run Text="." />
                         <LineBreak />
-                        <Run Text="10. Copy the value of the" />
-                        <Run FontWeight="SemiBold" Text="authorization" />
-                        <Run Text="header" />
+                        <Run Text=" 10. Скопируйте значение поля " />
+                        <Run FontWeight="SemiBold" Text="Authorization" />
+                        <Run Text="." />
                         <LineBreak />
                         <LineBreak />
 
@@ -208,32 +210,32 @@
                         <Run
                             FontSize="16"
                             FontWeight="SemiBold"
-                            Text="To get token for a bot account:" />
+                            Text="Для получения токена бота:" />
                         <LineBreak />
-                        <Run Text="1. Open Discord" />
+                        <Run Text=" 1. Откройте " />
                         <Hyperlink Command="{s:Action OpenDiscordDeveloperPortal}">
-                            <Run Text="developer portal" />
+                            <Run Text="Discord Developer Portal" />
                         </Hyperlink>
                         <LineBreak />
-                        <Run Text="2. Open your application's settings" />
+                        <Run Text=" 2. Перейдите в настройки приложений (Applications)" />
                         <LineBreak />
-                        <Run Text="3. Navigate to the" />
-                        <Run FontWeight="SemiBold" Text="Bot" />
-                        <Run Text="section on the left" />
+                        <Run Text=" 3. Создайте (или выбирите бота)." />
                         <LineBreak />
-                        <Run Text="4. Under" />
-                        <Run FontWeight="SemiBold" Text="Token" />
-                        <Run Text="click" />
-                        <Run FontWeight="SemiBold" Text="Copy" />
+                        <Run Text=" 4. Под полем" />
+                        <Run FontWeight="SemiBold" Text="Token (Токен)" />
+                        <Run Text="нажмите" />
+                        <Run FontWeight="SemiBold" Text="Copy (Копировать)" />
                         <LineBreak />
-                        <Run Text="*  Your bot needs to have" />
-                        <Run FontWeight="SemiBold" Text="Message Content Intent" />
-                        <Run Text="enabled to read messages" />
+                        <LineBreak />
+                        <Run Text="*  У бота необходимо включить опцию" />
+                        <Run FontWeight="SemiBold" Text="Message Content Intent " />
+                        <LineBreak />
+                        <Run Text="* для доступа к сообщениям" />
                         <LineBreak />
                         <LineBreak />
 
-                        <Run Text="If you have questions or issues, please refer to the" />
-                        <Hyperlink Command="{s:Action ShowHelp}">documentation</Hyperlink>
+                        <Run Text="Если у вас есть вопросы или замечания - пожалуйста, обратитесь к" />
+                        <Hyperlink Command="{s:Action ShowHelp}">документации</Hyperlink>
                     </TextBlock>
                 </ScrollViewer>
             </Grid>
@@ -345,7 +347,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid.ToolTip>
                                         <TextBlock>
-                                            <Run Text="Last message:" />
+                                            <Run Text="Последнее сообщение:" />
                                             <Run FontWeight="SemiBold" Text="{Binding LastMessageId, Converter={x:Static converters:SnowflakeToDateTimeOffsetConverter.Instance}, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}, TargetNullValue=never}" />
                                         </TextBlock>
                                     </Grid.ToolTip>

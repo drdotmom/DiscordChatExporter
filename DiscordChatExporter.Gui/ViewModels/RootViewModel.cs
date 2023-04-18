@@ -35,7 +35,7 @@ public class RootViewModel : Screen, IHandle<NotificationMessage>, IDisposable
 
         Dashboard = _viewModelFactory.CreateDashboardViewModel();
 
-        DisplayName = $"{App.Name} v{App.VersionString}";
+        DisplayName = $"DiZcordChatExporter v{App.VersionString}[R]";
     }
 
     public void OnViewFullyLoaded()

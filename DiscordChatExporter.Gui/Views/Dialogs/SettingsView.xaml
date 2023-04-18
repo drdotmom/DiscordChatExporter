@@ -22,7 +22,7 @@
             Margin="16,16,16,8"
             FontSize="19"
             FontWeight="Light"
-            Text="Settings" />
+            Text="Настройки" />
 
         <Border
             Grid.Row="1"
@@ -31,22 +31,6 @@
             BorderThickness="0,1">
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
-                    <!--  Auto-updates  -->
-                    <DockPanel
-                        Margin="16,8"
-                        Background="Transparent"
-                        LastChildFill="False"
-                        ToolTip="Perform automatic updates on every launch">
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            DockPanel.Dock="Left"
-                            Text="Auto-update" />
-                        <ToggleButton
-                            VerticalAlignment="Center"
-                            DockPanel.Dock="Right"
-                            IsChecked="{Binding IsAutoUpdateEnabled}" />
-                    </DockPanel>
-
                     <!--  Dark mode  -->
                     <DockPanel
                         Margin="16,8"
@@ -56,7 +40,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             DockPanel.Dock="Left"
-                            Text="Dark mode" />
+                            Text="Тёмная тема" />
                         <ToggleButton
                             x:Name="DarkModeToggleButton"
                             VerticalAlignment="Center"
@@ -71,11 +55,11 @@
                         Margin="16,8"
                         Background="Transparent"
                         LastChildFill="False"
-                        ToolTip="Save last used token in a file so that it can be persisted between sessions">
+                        ToolTip="Сохраняет последний использованный токен между сессиями">
                         <TextBlock
                             VerticalAlignment="Center"
                             DockPanel.Dock="Left"
-                            Text="Persist token" />
+                            Text="Сохранять токен" />
                         <ToggleButton
                             VerticalAlignment="Center"
                             DockPanel.Dock="Right"
@@ -87,11 +71,11 @@
                         Margin="16,8"
                         Background="Transparent"
                         LastChildFill="False"
-                        ToolTip="Format used when writing dates (uses .NET date formatting rules)">
+                        ToolTip="Формат, используемый для указания времени (использует правила форматирования времени из .NET)">
                         <TextBlock
                             VerticalAlignment="Center"
                             DockPanel.Dock="Left"
-                            Text="Date format" />
+                            Text="Формат даты/времени" />
                         <TextBox
                             Width="150"
                             VerticalAlignment="Center"
@@ -104,11 +88,11 @@
                         Margin="16,8"
                         Background="Transparent"
                         LastChildFill="False"
-                        ToolTip="How many channels can be exported at the same time">
+                        ToolTip="Указывает, сколько каналов может экспортироваться одновременно">
                         <TextBlock
                             VerticalAlignment="Center"
                             DockPanel.Dock="Left"
-                            Text="Parallel limit"
+                            Text="Лимит параллелизации"
                             TextAlignment="Right" />
                         <StackPanel
                             VerticalAlignment="Center"
@@ -138,7 +122,7 @@
             Margin="16"
             HorizontalAlignment="Stretch"
             Command="{s:Action Close}"
-            Content="SAVE"
+            Content="Сохранить"
             IsCancel="True"
             IsDefault="True"
             Style="{DynamicResource MaterialDesignOutlinedButton}" />
